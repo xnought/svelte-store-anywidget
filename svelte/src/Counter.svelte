@@ -1,26 +1,21 @@
 <script>
-	import { onDestroy, onMount } from "svelte";
+	import { onDestroy } from "svelte";
+	import { writableAnywidget } from "./anywidgetStore";
+
 	export let model;
-	export let name = "value";
-	console.log(model);
-	let count = model.get(name);
-	let event = `change:${name}`;
-	let callback = () => (count = model.get(name));
-	onMount(() => {
-		model.on(event, callback);
-	});
+	const [count, disposeCount] = writableAnywidget(model, "value");
+
 	onDestroy(() => {
-		model.off(event, callback);
+		disposeCount();
 	});
 </script>
 
 <button
 	on:click={() => {
-		model.set(name, model.get(name) + 1);
-		model.save_changes();
+		$count++;
 	}}
 >
-	Count is {count}
+	{$count}
 </button>
 
 <style>
