@@ -37,9 +37,9 @@ Then, in your svelte file you must register the anywidget model (returned from t
 Notice the svelte store syntax `$`. It's that easy!
 
 And if you want to access the store in other components, just call
-`const count = anywritable("value");` again in that file. It will not create another store, but give you the one you initially created.
+`const count = anywritable("count");` again in that file. It will not create another store, but give you the one you initially created.
 
-Note that you only need to call `register(model)` once. Then you can call `anywritable` anywhere.
+Note that you only need to call `register(model)` once. Then you can call `anywritable` in any component.
 
 If you want to dispose the listeners, call `dispose(name)` where name is the name of the traitlet/value.
 
