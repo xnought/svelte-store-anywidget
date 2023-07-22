@@ -6,7 +6,7 @@ To make things easier I've created an interface to create svelte writable stores
 
 ## How?
 
-Copy and paste the [`anywidgetStore.js`](anywidgetStore.js) file into your svelte project or just import it like I did (in [`svelte`](svelte/)).
+Copy and paste the [`anywidgetStore.js`](anywidgetStore.js) file into your svelte project or just import it like I did (in [`Counter.svelte`](svelte/src/Counter.svelte)).
 
 Then, in your svelte file you must register the anywidget model (returned from the render function (see [`main.js`](svelte/src/main.js) and [`Counter.svelte`](svelte/src/Counter.svelte)) in the svelte project).
 
