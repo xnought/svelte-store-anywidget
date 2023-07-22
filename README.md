@@ -21,7 +21,7 @@ Then, in your svelte file you must register the anywidget model (returned from t
 	// these are normal svelte stores synced with your notebook
 	// you change the value in the python notebook, this svelte store will automatically update
         // you change the svelte store value, the python notebook value will auotmatically update
-	const count = anywritable("value"); // "value" is the name of the value on the anywidget python class
+	const count = anywritable("count"); // "count" is the name of the reactive value on the anywidget python class
 </script>
 
 

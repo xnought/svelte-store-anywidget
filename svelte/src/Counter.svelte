@@ -12,7 +12,7 @@
 	register(model); // do this or pass in the model directly just once (once ever)
 	// const count = anywritable("value", model); // or pass in the model directly (just once ever)
 
-	const count = anywritable("value");
+	const count = anywritable("count");
 	const name = anywritable("name");
 
 	onDestroy(() => {
