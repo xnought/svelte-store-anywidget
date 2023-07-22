@@ -4,6 +4,14 @@ If you want to create svelte components on jupyter notebooks use [anywidget](htt
 
 To make things easier I've created an interface to create svelte writable stores that sync with anywidget. You don't even have to think about anywidget!
 
+
+
+https://github.com/xnought/svelte-store-anywidget/assets/65095341/b37a78d1-624f-4596-9661-dc123e8ddd91
+
+
+
+
+
 ## How?
 
 Copy and paste the [`anywidgetStore.js`](anywidgetStore.js) file into your svelte project or just import it like I did (in [`Counter.svelte`](svelte/src/Counter.svelte)).
