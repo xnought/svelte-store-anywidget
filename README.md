@@ -69,3 +69,52 @@ Check out the svelte files to see how I import things!
 ## Thank you internet
 
 I borrowed half the code from [Trevor Manz](https://gist.github.com/manzt/af46972d7a0a8e870f5228da66c52891) to get svelte up and running with anywidget.
+
+## Experimental Syntax
+
+Instead of lugging around the `anywritable` function everywhere, this new syntax simply syncs an existing svelte store with the notebook value from anywidget.
+
+So in a separate file accessible to any component I can first create the svelte store as normal.
+
+```js
+import { writable } from "svelte/store";
+
+export const count = writable(0);
+```
+
+Then when I have access to the `model`, I can sync the `count` svelte store with the notebook by calling `syncAnywidget` on the `count`. Like this
+
+```svelte
+<script>
+	import { onDestroy } from "svelte";
+
+	import { count } from "./store";
+	import { syncAnywidget } from "../../../anywidgetStore";
+
+	export let model;
+
+	// call the sync once, then the stores react to changes and the notebook reacts to store changes
+	const disposeCount = syncAnywidget(count, model, "count");
+	const disposeName = syncAnywidget(name, model, "name");
+
+	// disposes all listeners created in the sync
+	onDestroy(() => {
+		disposeCount();
+		disposeName();
+	});
+</script>
+
+(Experimental sync syntax)
+
+<button
+	on:click={() => {
+		$count++;
+	}}
+>
+	Increment: {$count}
+</button>
+```
+
+Now, I can simply import the store in other files, and they will be usable just like that!
+
+Check out the [`CounterExperiment.svelte`](./svelte/src/experiment/CounterExperiment.svelte) to see a usecase.

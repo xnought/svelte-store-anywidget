@@ -113,3 +113,47 @@ export function anywritable(name, model = undefined) {
 		);
 	}
 }
+
+/**
+ * ALTERNATIVE SYNTAX TO anywritable()
+ * preferable if you want to create stores in other files first before linking to the model
+ * Links your svelte/store to the notebook value (read, updates, writes all synced both ways)
+ *
+ * @param {import("svelte/store").Writable} store writable svelte store
+ * @param model anywidget jupyter model
+ * @param {string} name of the anywidget value you want to track/update in the store
+ * @return {() => void} disposes of various listeners when called for this link
+ */
+export function syncAnywidget(store, model, name) {
+	store.set(model.get(name)); // get the default value from the notebook
+
+	/**
+	 * Updating notebook value from svelte store change
+	 */
+	let updatedInNotebook = false;
+	const storeUnsubscribe = store.subscribe((newValue) => {
+		// reflect changes in notebook from svelte change
+		if (updatedInNotebook == false) {
+			model.set(name, newValue);
+			model.save_changes();
+		}
+		updatedInNotebook = false;
+	});
+
+	/**
+	 * Updating svelte store from notebook value change
+	 */
+	const updateFromNotebook = () => {
+		// reflect changes in svelte store from notebook change
+		updatedInNotebook = true;
+		store.set(model.get(name));
+	};
+	const event = `change:${name}`;
+	model.on(event, updateFromNotebook);
+	function unsubscribe() {
+		model.off(event, updateFromNotebook);
+		storeUnsubscribe();
+	}
+
+	return unsubscribe;
+}
