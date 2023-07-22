@@ -72,9 +72,12 @@ I borrowed half the code from [Trevor Manz](https://gist.github.com/manzt/af4697
 
 ## Experimental Syntax
 
+(WIP, still kind of buggy)
+
 Instead of lugging around the `anywritable` function everywhere, this new syntax simply syncs an existing svelte store with the notebook value from anywidget.
 
 Create the store in a file importable by any component. I'll put it in `store.js` for future reference.
+
 ```js
 import { writable } from "svelte/store";
 
