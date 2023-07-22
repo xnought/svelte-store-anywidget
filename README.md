@@ -95,12 +95,10 @@ Then when I have access to the `model`, I can sync the `count` svelte store with
 
 	// call the sync once, then the stores react to changes and the notebook reacts to store changes
 	const disposeCount = syncAnywidget(count, model, "count");
-	const disposeName = syncAnywidget(name, model, "name");
 
 	// disposes all listeners created in the sync
 	onDestroy(() => {
 		disposeCount();
-		disposeName();
 	});
 </script>
 
