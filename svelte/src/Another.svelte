@@ -1,7 +1,8 @@
 <script>
-	import { stores } from "./anywidgetStore";
+	import { anywritable } from "../../anywidgetStore";
 
-	const count = stores["value"];
+	// see you don't have to pass in model since it's already registered from Counter.svelte
+	const count = anywritable("value");
 </script>
 
 <div>{$count}</div>
