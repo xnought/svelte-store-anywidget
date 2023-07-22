@@ -10,13 +10,13 @@
 
 	export let model;
 	register(model); // do this or pass in the model directly just once (once ever)
-	// const count = anywritable("value", model); // or pass in the model directly (just once ever)
+	// const count = anywritable("count", model); // or pass in the model directly (just once ever)
 
 	const count = anywritable("count");
 	const name = anywritable("name");
 
 	onDestroy(() => {
-		// dispose("value")
+		// dispose("count")
 		// dispose("name")
 		disposeAll();
 	});
