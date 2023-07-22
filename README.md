@@ -16,7 +16,7 @@ Then, in your svelte file you must register the anywidget model (returned from t
 <script>
 	import { anywritable, register } from "./anywidgetStore"
 	export let model; // anywidget model
-	register(model); // register anywidget model once ever
+	register(model); // register anywidget model once ever, then can use anywritable() across any component
 
 	// these are normal svelte stores synced with your notebook
 	// you change the value in the python notebook, this svelte store will automatically update
