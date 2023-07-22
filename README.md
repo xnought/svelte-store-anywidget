@@ -65,3 +65,7 @@ Then out the example notebook called [`example.ipynb`](example.ipynb)
 Run the notebook!
 
 Check out the svelte files to see how I import things!
+
+## Thank you internet
+
+I borrowed half the code from [Trevor Manz](https://gist.github.com/manzt/af46972d7a0a8e870f5228da66c52891) to get svelte up and running with anywidget.
