@@ -1,4 +1,4 @@
-# svelte-anywidget-template
+# Svelte Stores + AnyWidget
 
 If you want to create svelte components on jupyter notebooks use [anywidget](https://anywidget.dev/) + [svelte](https://svelte.dev/).
 
