@@ -74,8 +74,7 @@ I borrowed half the code from [Trevor Manz](https://gist.github.com/manzt/af4697
 
 Instead of lugging around the `anywritable` function everywhere, this new syntax simply syncs an existing svelte store with the notebook value from anywidget.
 
-So in a separate file accessible to any component I can first create the svelte store as normal.
-
+Create the store in a file importable by any component. I'll put it in `store.js` for future reference.
 ```js
 import { writable } from "svelte/store";
 
@@ -113,6 +112,6 @@ Then when I have access to the `model`, I can sync the `count` svelte store with
 </button>
 ```
 
-Now, I can simply import the store in other files, and they will be usable just like that!
+Now, I can simply import the store in other files, and they will be usable like normal svelte stores! No need to sync again. Just once.
 
 Check out the [`CounterExperiment.svelte`](./svelte/src/experiment/CounterExperiment.svelte) to see a usecase.
