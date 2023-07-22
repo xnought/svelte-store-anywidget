@@ -1,14 +1,14 @@
 # svelte-anywidget-template
 
-If you want to create svelte components on jupyter notebooks use [anywidget]() + [svelte]().
+    If you want to create svelte components on jupyter notebooks use [anywidget](https://anywidget.dev/) + [svelte](https://svelte.dev/).
 
 To make things easier I've created an interface to create svelte writable stores that sync with anywidget. You don't even have to think about anywidget!
 
 ## How?
 
-Copy and paste the [`anywidgetStore.js`]() file into your svelte project or just import it like I did (in [`svelte`]()).
+Copy and paste the [`anywidgetStore.js`](anywidgetStore.js) file into your svelte project or just import it like I did (in [`svelte`](svelte/)).
 
-Then, in your svelte file you must register the anywidget model (returned from the render function (see [`main.js`]() and [`Counter.svelte`]()) in the svelte project).
+Then, in your svelte file you must register the anywidget model (returned from the render function (see [`main.js`](svelte/src/main.js) and [`Counter.svelte`](svelte/src/Counter.svelte)) in the svelte project).
 
 ```svelte
 <script>
@@ -56,7 +56,7 @@ then run the dev server
 yarn dev
 ```
 
-Then out the example notebook called [`example.ipynb`]()
+Then out the example notebook called [`example.ipynb`](example.ipynb)
 
 Run the notebook!
 
