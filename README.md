@@ -4,13 +4,7 @@ If you want to create svelte components on jupyter notebooks use [anywidget](htt
 
 To make things easier I've created an interface to create svelte writable stores that sync with anywidget. You don't even have to think about anywidget!
 
-
-
 https://github.com/xnought/svelte-store-anywidget/assets/65095341/b37a78d1-624f-4596-9661-dc123e8ddd91
-
-
-
-
 
 ## How?
 
@@ -24,9 +18,10 @@ Then, in your svelte file you must register the anywidget model (returned from t
 	export let model; // anywidget model
 	register(model); // do this or pass in the model directly just once (once ever)
 
-	// these are normal svelte stores synced with notebook updates too!
-	// if you update these, the notebook will update too!
-	const count = anywritable("value"); // "value" is the name of the traitlet value on the python class
+	// these are normal svelte stores synced with your notebook
+	// you change the value in the python notebook, this svelte store will automatically update
+        // you change the svelte store value, the python notebook value will auotmatically update
+	const count = anywritable("value"); // "value" is the name of the value on the anywidget python class
 </script>
 
 
