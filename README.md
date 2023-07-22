@@ -20,6 +20,7 @@ Then, in your svelte file you must register the anywidget model (returned from t
 
 ```svelte
 <script>
+	import { anywritable } from "./anywidgetStore.js"
 	export let model; // anywidget model
 	register(model); // do this or pass in the model directly just once (once ever)
 
