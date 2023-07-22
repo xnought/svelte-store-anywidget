@@ -1,6 +1,6 @@
 # svelte-anywidget-template
 
-    If you want to create svelte components on jupyter notebooks use [anywidget](https://anywidget.dev/) + [svelte](https://svelte.dev/).
+If you want to create svelte components on jupyter notebooks use [anywidget](https://anywidget.dev/) + [svelte](https://svelte.dev/).
 
 To make things easier I've created an interface to create svelte writable stores that sync with anywidget. You don't even have to think about anywidget!
 
